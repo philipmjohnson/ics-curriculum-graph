@@ -39,16 +39,16 @@
     {id: 321, level: 7, label: '321: Data storage and retrieval', type: 'major'},
     {id: 331, level: 7, label: '331: Logic design and microprocessors', type: 'major'},
     {id: 332, level: 7, label: '332: Operating systems', type: 'major'},
-    {id: 355, level: 7, label: '355: Security and trust I', type: 'elective'},
+    {id: 355, level: 7, label: '355: Security and trust I', type: 'security'},
     {id: 351, level: 7, label: '351: Network design and management', type: 'elective'},
     {id: 361, level: 7, label: '361: Intro to AI', type: 'elective'},
     {id: 414, level: 7, label: '414: Software engineering II', type: 'elective'},
     {id: 415, level: 7, label: '415: Intro to programming for the web', type: 'elective'},
     {id: 419, level: 7, label: '419: Science of design', type: 'elective'},
     {id: 421, level: 9, label: '421: Database systems', type: 'elective'},
-    {id: 423, level: 9, label: '423: Computer security', type: 'elective'},
-    {id: 425, level: 7, label: '425: Computer security and ethics', type: 'elective'},
-    {id: 426, level: 9, label: '426: Computer systems security', type: 'elective'},
+    {id: 423, level: 9, label: '423: Computer security', type: 'security'},
+    {id: 425, level: 9, label: '425: Computer security and ethics', type: 'security'},
+    {id: 426, level: 9, label: '426: Computer systems security', type: 'security'},
     {id: 431, level: 9, label: '431: Computer architecture', type: 'elective'},
     {id: 432, level: 7, label: '432: Concurrent programming', type: 'elective'},
     {id: 435, level: 7, label: '435: Machine learning', type: 'elective'},
@@ -56,7 +56,7 @@
     {id: 442, level: 7, label: '442: Analytical models', type: 'elective'},
     {id: 451, level: 7, label: '451: Data networks', type: 'elective'},
     {id: 452, level: 9, label: '452: Robotics', type: 'elective'},
-    {id: 455, level: 9, label: '455: Security and trust II', type: 'elective'},
+    {id: 455, level: 9, label: '455: Security and trust II', type: 'security'},
     {id: 461, level: 9, label: '461: Artificial intelligence', type: 'elective'},
     {id: 462, level: 9, label: '462: AI for games', type: 'elective'},
     {id: 464, level: 7, label: '464: Human computer interaction', type: 'elective'},
@@ -66,7 +66,8 @@
     {id: 476, level: 9, label: '476: Bioinformatics II', type: 'elective'},
     {id: 481, level: 7, label: '481: Intro to computer graphics', type: 'elective'},
     {id: 483, level: 7, label: '483: Computer vision', type: 'elective'},
-    {id: 484, level: 7, label: '484: Data visualization', type: 'elective'}
+    {id: 484, level: 7, label: '484: Data visualization', type: 'elective'},
+    {id: 485, level: 7, label: '485: Video game design and development', type: 'elective'}
   ]
 
   var courselinks = [
@@ -75,7 +76,9 @@
     {from: 211, to: 212},
     {from: 211, to: 215},
     {from: 211, to: 311},
+    {from: 241, to: 311},
     {from: 241, to: 341},
+    {from: 211, to: 341},
     {from: 311, to: 312},
     {from: 341, to: 312},
     {from: 311, to: 313},
@@ -101,10 +104,9 @@
     {from: 311, to: 419},
     {from: 341, to: 419},
     {from: 321, to: 421},
-    {from: 311, to: 425},
-    {from: 341, to: 425},
-    {from: 312, to: 423},
-    {from: 351, to: 426},
+    {from: 355, to: 425},
+    {from: 355, to: 423},
+    {from: 355, to: 426},
     {from: 331, to: 431},
     {from: 341, to: 432},
     {from: 311, to: 432},
@@ -132,7 +134,11 @@
     {from: 341, to: 481},
     {from: 311, to: 481},
     {from: 212, to: 483},
-    {from: 341, to: 483}
+    {from: 341, to: 483},
+    {from: 341, to: 484},
+    {from: 311, to: 484},
+    {from: 341, to: 485},
+    {from: 311, to: 485}
   ]
 
   var addModuleProperties = function (modules) {
@@ -171,9 +177,9 @@
     });
   }
 
+  addModuleColor(courses, 'Black');
   addModuleColor(getCourses('core'), 'Blue');
-  addModuleColor(getCourses('major'), 'FireBrick');
-  addModuleColor(getCourses('elective'), 'Green');
+  addModuleColor(getCourses('security'), 'Green');
 
 
 
