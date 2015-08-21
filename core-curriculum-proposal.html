@@ -9,14 +9,14 @@
 
 <script type="text/javascript" src="http://courses.ics.hawaii.edu/js/underscore.js"></script>
 <script type="text/javascript" src="http://courses.ics.hawaii.edu/js/vis.js"></script>
-<link href="http://courses.ics.hawaii.edu/css/vis.css" rel="stylesheet" type="text/css" />
+<link href="http://courses.ics.hawaii.edu/css/vis.css" rel="stylesheet" type="text/css"/>
 
 <style type="text/css">
-    #mynetwork {
-      width: 100%;
-      height: 1800px;
-      border: 0px solid lightgray;
-    }
+  #mynetwork {
+    width: 100%;
+    height: 1800px;
+    border: 0px solid lightgray;
+  }
 </style>
 
 <div id="mynetwork"></div>
@@ -26,47 +26,48 @@
   var courses = [
     //{id: 101, level: 0, label: '101: Tools for the information age'},
     //{id: 110, level: 0, label: '110: Intro to programming through 3D animations'},
-    {id: 111, level: 1, label: '111: Intro to CS I'},
-    {id: 141, level: 1, label: '141: Discrete mathematics for CS I'},
-    {id: 211, level: 3, label: '211: Intro to CS II'},
-    {id: 241, level: 3, label: '241: Discrete mathematics for CS II'},
-    {id: 212, level: 5, label: '212: Program structure'},
-    {id: 215, level: 5, label: '215: Intro to scripting'},
-    {id: 311, level: 5, label: '311: Software engineering I'},
-    {id: 341, level: 5, label: '341: Algorithms'},
-    {id: 312, level: 7, label: '312: Machine level and systems programming'},
-    {id: 313, level: 7, label: '313: Programming language theory'},
-    {id: 321, level: 7, label: '321: Data storage and retrieval'},
-    {id: 331, level: 7, label: '331: Logic design and microprocessors'},
-    {id: 332, level: 7, label: '332: Operating systems'},
-    {id: 355, level: 7, label: '355: Security and trust I'},
-    {id: 351, level: 7, label: '351: Network design and management'},
-    {id: 361, level: 7, label: '361: Intro to AI'},
-    {id: 414, level: 7, label: '414: Software engineering II'},
-    {id: 415, level: 7, label: '415: Intro to programming for the web'},
-    {id: 419, level: 7, label: '419: Science of design'},
-    {id: 421, level: 9, label: '421: Database systems'},
-    {id: 423, level: 9, label: '423: Computer security'},
-    {id: 425, level: 7, label: '425: Computer security and ethics'},
-    {id: 426, level: 9, label: '426: Computer systems security'},
-    {id: 431, level: 9, label: '431: Computer architecture'},
-    {id: 432, level: 7, label: '432: Concurrent programming'},
-    {id: 435, level: 7, label: '435: Machine learning'},
-    {id: 441, level: 9, label: '441: Theory of computation'},
-    {id: 442, level: 7, label: '442: Analytical models'},
-    {id: 451, level: 7, label: '451: Data networks'},
-    {id: 452, level: 9, label: '452: Robotics'},
-    {id: 455, level: 9, label: '455: Security and trust II'},
-    {id: 461, level: 9, label: '461: Artificial intelligence'},
-    {id: 462, level: 9, label: '462: AI for games'},
-    {id: 464, level: 7, label: '464: Human computer interaction'},
-    {id: 466, level: 7, label: '466: Design for mobile devices'},
-    {id: 469, level: 7, label: '469: Cognitive science'},
-    {id: 475, level: 7, label: '475: Bioinformatics I'},
-    {id: 476, level: 9, label: '476: Bioinformatics II'},
-    {id: 481, level: 7, label: '481: Intro to computer graphics'},
-    {id: 483, level: 7, label: '483: Computer vision'},
-    {id: 484, level: 7, label: '484: Data visualization'}
+    {id: 111, level: 1, label: '111: Intro to CS I', type: 'core'},
+    {id: 141, level: 1, label: '141: Discrete mathematics for CS I', type: 'core'},
+    {id: 211, level: 3, label: '211: Intro to CS II', type: 'core'},
+    {id: 241, level: 3, label: '241: Discrete mathematics for CS II', type: 'core'},
+    {id: 212, level: 5, label: '212: Program structure', type: 'major'},
+    {id: 215, level: 5, label: '215: Intro to scripting', type: 'elective'},
+    {id: 311, level: 5, label: '311: Software engineering I', type: 'core'},
+    {id: 341, level: 5, label: '341: Algorithms', type: 'core'},
+    {id: 312, level: 7, label: '312: Machine level and systems programming', type: 'major'},
+    {id: 313, level: 7, label: '313: Programming language theory', type: 'major'},
+    {id: 321, level: 7, label: '321: Data storage and retrieval', type: 'major'},
+    {id: 331, level: 7, label: '331: Logic design and microprocessors', type: 'major'},
+    {id: 332, level: 7, label: '332: Operating systems', type: 'major'},
+    {id: 355, level: 7, label: '355: Security and trust I', type: 'security'},
+    {id: 351, level: 7, label: '351: Network design and management', type: 'elective'},
+    {id: 361, level: 7, label: '361: Intro to AI', type: 'elective'},
+    {id: 414, level: 7, label: '414: Software engineering II', type: 'elective'},
+    {id: 415, level: 7, label: '415: Intro to programming for the web', type: 'elective'},
+    {id: 419, level: 7, label: '419: Science of design', type: 'elective'},
+    {id: 421, level: 9, label: '421: Database systems', type: 'elective'},
+    {id: 423, level: 9, label: '423: Computer security', type: 'security'},
+    {id: 425, level: 9, label: '425: Computer security and ethics', type: 'security'},
+    {id: 426, level: 9, label: '426: Computer systems security', type: 'security'},
+    {id: 431, level: 9, label: '431: Computer architecture', type: 'elective'},
+    {id: 432, level: 7, label: '432: Concurrent programming', type: 'elective'},
+    {id: 435, level: 7, label: '435: Machine learning', type: 'elective'},
+    {id: 441, level: 9, label: '441: Theory of computation', type: 'elective'},
+    {id: 442, level: 7, label: '442: Analytical models', type: 'elective'},
+    {id: 451, level: 7, label: '451: Data networks', type: 'elective'},
+    {id: 452, level: 9, label: '452: Robotics', type: 'elective'},
+    {id: 455, level: 9, label: '455: Security and trust II', type: 'security'},
+    {id: 461, level: 9, label: '461: Artificial intelligence', type: 'elective'},
+    {id: 462, level: 9, label: '462: AI for games', type: 'elective'},
+    {id: 464, level: 7, label: '464: Human computer interaction', type: 'elective'},
+    {id: 466, level: 7, label: '466: Design for mobile devices', type: 'elective'},
+    {id: 469, level: 7, label: '469: Cognitive science', type: 'elective'},
+    {id: 475, level: 7, label: '475: Bioinformatics I', type: 'elective'},
+    {id: 476, level: 9, label: '476: Bioinformatics II', type: 'elective'},
+    {id: 481, level: 7, label: '481: Intro to computer graphics', type: 'elective'},
+    {id: 483, level: 7, label: '483: Computer vision', type: 'elective'},
+    {id: 484, level: 7, label: '484: Data visualization', type: 'elective'},
+    {id: 485, level: 7, label: '485: Video game design and development', type: 'elective'}
   ]
 
   var courselinks = [
@@ -75,22 +76,26 @@
     {from: 211, to: 212},
     {from: 211, to: 215},
     {from: 211, to: 311},
+    {from: 241, to: 311},
     {from: 241, to: 341},
+    {from: 211, to: 341},
     {from: 311, to: 312},
     {from: 341, to: 312},
+    {from: 212, to: 312},
     {from: 311, to: 313},
     {from: 341, to: 313},
     {from: 311, to: 321},
     {from: 341, to: 321},
     {from: 311, to: 331},
     {from: 341, to: 331},
+    {from: 212, to: 331},
     {from: 311, to: 332},
     {from: 341, to: 332},
     {from: 341, to: 355},
     {from: 311, to: 355},
     {from: 311, to: 351},
     {from: 341, to: 351},
-    {from: 212, to: 361},
+    //{from: 212, to: 361},
     {from: 215, to: 361},
     {from: 311, to: 361},
     {from: 341, to: 361},
@@ -101,10 +106,9 @@
     {from: 311, to: 419},
     {from: 341, to: 419},
     {from: 321, to: 421},
-    {from: 311, to: 425},
-    {from: 341, to: 425},
-    {from: 312, to: 423},
-    {from: 351, to: 426},
+    {from: 355, to: 425},
+    {from: 355, to: 423},
+    {from: 355, to: 426},
     {from: 331, to: 431},
     {from: 341, to: 432},
     {from: 311, to: 432},
@@ -132,12 +136,16 @@
     {from: 341, to: 481},
     {from: 311, to: 481},
     {from: 212, to: 483},
-    {from: 341, to: 483}
+    {from: 341, to: 483},
+    {from: 341, to: 484},
+    {from: 311, to: 484},
+    {from: 341, to: 485},
+    {from: 311, to: 485}
   ]
 
-  var addModuleProperties = function(modules) {
+  var addModuleProperties = function (modules) {
     _.each(modules,
-        function(module) {
+        function (module) {
           module['id'] = getID();
           module['shape'] = 'box';
           module['label'] = module.course + ": " + module.module;
@@ -146,25 +154,40 @@
     return modules;
   };
 
-  var setModuleProperty = function(modules, property, propertyValue) {
+  var setModuleProperty = function (modules, property, propertyValue) {
     _.each(modules,
-        function(module) {
+        function (module) {
           module[property] = propertyValue;
         });
     return modules;
   };
 
-  var addModuleColor = function(modules, color) {
+  var addModuleColor = function (modules, color) {
     _.each(modules,
         function (module) {
-          module['color'] = color;
+          //var colorObj = module[color];
+          //console.log(module);
+          module['color'] = {border: color, background: 'white'};
+          module['borderWidth'] = 2;
         });
     return modules;
   }
 
+  var getCourses = function (courseType) {
+    return _.filter(courses, function (course) {
+      return course.type === courseType;
+    });
+  }
+
+  addModuleColor(courses, 'Black');
+  addModuleColor(getCourses('core'), 'Blue');
+  addModuleColor(getCourses('security'), 'Green');
+
+
+
+
 
   /////////////////////////////////////////////////
-
 
   // Add IDs and other standard properties to all modules.
   setModuleProperty(courses, 'shape', 'box');
@@ -182,8 +205,9 @@
   };
 
   var options = {
-    edges: { arrows: 'to'},
-    layout: {hierarchical:{direction: "LR"}}};
+    edges: {arrows: 'to', color: 'black'},
+    layout: {hierarchical: {direction: "LR"}}
+  };
   //options = {};
 
   // initialize your network!

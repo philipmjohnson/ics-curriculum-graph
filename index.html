@@ -68,7 +68,8 @@
     {id: 476, level: 9, label: '476: Bioinformatics II'},
     {id: 481, level: 7, label: '481: Intro to computer graphics'},
     {id: 483, level: 7, label: '483: Computer vision'},
-    {id: 484, level: 7, label: '484: Data visualization'}
+    {id: 484, level: 7, label: '484: Data visualization'},
+    {id: 485, level: 7, label: '485: Video game design and development'}
   ]
 
   var courselinks = [
@@ -122,7 +123,9 @@
     {from: 475, to: 476},
     {from: 311, to: 481},
     {from: 212, to: 483},
-    {from: 311, to: 483}
+    {from: 311, to: 483},
+    {from: 311, to: 484},
+    {from: 311, to: 485}
   ]
 
 
@@ -147,13 +150,18 @@
     return modules;
   };
 
-  var addModuleColor = function(modules, color) {
+  var addModuleColor = function (modules, color) {
     _.each(modules,
         function (module) {
-          module['color'] = color;
+          //var colorObj = module[color];
+          //console.log(module);
+          module['color'] = {border: color, background: 'white'};
+          module['borderWidth'] = 2;
         });
     return modules;
   }
+
+  addModuleColor(courses, 'Black');
 
 
   /////////////////////////////////////////////////
