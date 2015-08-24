@@ -26,14 +26,19 @@
   var courses = [
     //{id: 101, level: 0, label: '101: Tools for the information age'},
     //{id: 110, level: 0, label: '110: Intro to programming through 3D animations'},
+    //{id: 210, level: 0, label: '210: Information systems in society'},
+    //{id: 290, level: 0, label: '290: Computer science careers'},
+    //{id: 424, level: 0, label: '424: Application frameworks'},
+
+
     {id: 111, level: 1, label: '111: Intro to CS I', type: 'core'},
     {id: 141, level: 1, label: '141: Discrete mathematics for CS I', type: 'core'},
     {id: 211, level: 3, label: '211: Intro to CS II', type: 'core'},
     {id: 241, level: 3, label: '241: Discrete mathematics for CS II', type: 'core'},
     {id: 212, level: 5, label: '212: Program structure', type: 'major'},
     {id: 215, level: 5, label: '215: Intro to scripting', type: 'elective'},
-    {id: 311, level: 5, label: '311: Software engineering I', type: 'core'},
-    {id: 341, level: 5, label: '341: Algorithms', type: 'core'},
+    {id: 314, level: 5, label: '314: Software engineering I', type: 'core'},
+    {id: 311, level: 5, label: '311: Algorithms', type: 'core'},
     {id: 312, level: 7, label: '312: Machine level and systems programming', type: 'major'},
     {id: 313, level: 7, label: '313: Programming language theory', type: 'major'},
     {id: 321, level: 7, label: '321: Data storage and retrieval', type: 'major'},
@@ -54,14 +59,17 @@
     {id: 435, level: 7, label: '435: Machine learning', type: 'elective'},
     {id: 441, level: 9, label: '441: Theory of computation', type: 'elective'},
     {id: 442, level: 7, label: '442: Analytical models', type: 'elective'},
+    {id: 443, level: 7, label: '443: Parallel Algorithms', type: 'elective'},
     {id: 451, level: 7, label: '451: Data networks', type: 'elective'},
     {id: 452, level: 9, label: '452: Robotics', type: 'elective'},
     {id: 455, level: 9, label: '455: Security and trust II', type: 'security'},
     {id: 461, level: 9, label: '461: Artificial intelligence', type: 'elective'},
     {id: 462, level: 9, label: '462: AI for games', type: 'elective'},
     {id: 464, level: 7, label: '464: Human computer interaction', type: 'elective'},
+    {id: 465, level: 7, label: '465: Introduction to hypermedia', type: 'elective'},
     {id: 466, level: 7, label: '466: Design for mobile devices', type: 'elective'},
     {id: 469, level: 7, label: '469: Cognitive science', type: 'elective'},
+    {id: 471, level: 7, label: '471: Probability, Statistics, and Queuing', type: 'elective'},
     {id: 475, level: 7, label: '475: Bioinformatics I', type: 'elective'},
     {id: 476, level: 9, label: '476: Bioinformatics II', type: 'elective'},
     {id: 481, level: 7, label: '481: Intro to computer graphics', type: 'elective'},
@@ -75,72 +83,113 @@
     {from: 141, to: 241},
     {from: 211, to: 212},
     {from: 211, to: 215},
-    {from: 211, to: 311},
+    {from: 211, to: 314},
+    {from: 241, to: 314},
     {from: 241, to: 311},
-    {from: 241, to: 341},
-    {from: 211, to: 341},
+    {from: 211, to: 311},
+
+    {from: 314, to: 312},
     {from: 311, to: 312},
-    {from: 341, to: 312},
     {from: 212, to: 312},
+
+    {from: 314, to: 313},
     {from: 311, to: 313},
-    {from: 341, to: 313},
+
+    {from: 314, to: 321},
     {from: 311, to: 321},
-    {from: 341, to: 321},
+
+    {from: 314, to: 331},
     {from: 311, to: 331},
-    {from: 341, to: 331},
     {from: 212, to: 331},
+
+    {from: 314, to: 332},
     {from: 311, to: 332},
-    {from: 341, to: 332},
-    {from: 341, to: 355},
+
     {from: 311, to: 355},
+    {from: 314, to: 355},
+
+    {from: 314, to: 351},
     {from: 311, to: 351},
-    {from: 341, to: 351},
+
     //{from: 212, to: 361},
     {from: 215, to: 361},
+    {from: 314, to: 361},
     {from: 311, to: 361},
-    {from: 341, to: 361},
+
+    {from: 314, to: 414},
     {from: 311, to: 414},
-    {from: 341, to: 414},
+
+    {from: 314, to: 415},
     {from: 311, to: 415},
-    {from: 341, to: 415},
+
+    {from: 314, to: 419},
     {from: 311, to: 419},
-    {from: 341, to: 419},
+
     {from: 321, to: 421},
+
     {from: 355, to: 425},
     {from: 355, to: 423},
     {from: 355, to: 426},
+
     {from: 331, to: 431},
-    {from: 341, to: 432},
+
     {from: 311, to: 432},
-    {from: 341, to: 435},
+    {from: 314, to: 432},
+
     {from: 311, to: 435},
+    {from: 314, to: 435},
+
     {from: 313, to: 441},
-    {from: 341, to: 442},
+
     {from: 311, to: 442},
+    {from: 314, to: 442},
+
+    {from: 314, to: 443},
+    {from: 311, to: 443},
+
     {from: 212, to: 451},
-    {from: 341, to: 451},
+    {from: 311, to: 451},
+    {from: 314, to: 451},
+
     {from: 331, to: 452},
+
     {from: 355, to: 455},
+
     {from: 361, to: 461},
     {from: 212, to: 462},
     {from: 361, to: 462},
-    {from: 341, to: 464},
+
     {from: 311, to: 464},
-    {from: 341, to: 466},
+    {from: 314, to: 464},
+
+    {from: 311, to: 465},
+    {from: 314, to: 465},
+
     {from: 311, to: 466},
-    {from: 341, to: 469},
+    {from: 314, to: 466},
+
     {from: 311, to: 469},
-    {from: 341, to: 475},
+    {from: 314, to: 469},
+
+    {from: 311, to: 471},
+    {from: 314, to: 471},
+
     {from: 311, to: 475},
+    {from: 314, to: 475},
+
     {from: 475, to: 476},
-    {from: 341, to: 481},
+
     {from: 311, to: 481},
+    {from: 314, to: 481},
+
     {from: 212, to: 483},
-    {from: 341, to: 483},
-    {from: 341, to: 484},
+    {from: 311, to: 483},
+
     {from: 311, to: 484},
-    {from: 341, to: 485},
-    {from: 311, to: 485}
+    {from: 314, to: 484},
+
+    {from: 311, to: 485},
+    {from: 314, to: 485}
   ]
 
   var addModuleProperties = function (modules) {
